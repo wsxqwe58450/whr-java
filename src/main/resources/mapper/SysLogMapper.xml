@@ -3,7 +3,7 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.at.wangshixiu.whr.mapper.SysLogMapper">
-    <resultMap type="com.at.wangshixiu.whr.entity.SysLog" id="SysLogMap">
+    <resultMap type="com.at.wangshixiu.whr.entity.sys.SysLog" id="SysLogMap">
         <result property="id" column="ID" jdbcType="VARCHAR"/>
         <result property="className" column="CLASS_NAME" jdbcType="VARCHAR"/>
         <result property="methodName" column="METHOD_NAME" jdbcType="VARCHAR"/>

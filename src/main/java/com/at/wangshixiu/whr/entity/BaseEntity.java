@@ -1,5 +1,7 @@
 package com.at.wangshixiu.whr.entity;
 
+import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.TableId;
 import com.fasterxml.jackson.annotation.JsonFormat;
 
 import org.springframework.format.annotation.DateTimeFormat;
@@ -17,6 +19,10 @@ import lombok.Data;
  */
 @Data
 public class BaseEntity implements Serializable {
+
+    @ApiModelProperty("表id")
+    @TableId(type = IdType.ASSIGN_ID)
+    private String id;
 
     /**
      * 创建人

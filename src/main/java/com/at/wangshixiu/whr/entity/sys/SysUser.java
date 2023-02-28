@@ -1,10 +1,8 @@
-package com.at.wangshixiu.whr.entity;
+package com.at.wangshixiu.whr.entity.sys;
 
 import com.at.wangshixiu.whr.common.interfaces.Desensitized;
 import com.at.wangshixiu.whr.common.sensitive.SensitiveTypeEnum;
-import com.baomidou.mybatisplus.annotation.IdType;
-import com.baomidou.mybatisplus.annotation.TableField;
-import com.baomidou.mybatisplus.annotation.TableId;
+import com.at.wangshixiu.whr.entity.BaseEntity;
 import com.baomidou.mybatisplus.annotation.TableName;
 
 import javax.validation.constraints.Email;
@@ -24,9 +22,7 @@ import lombok.Data;
 @TableName("sys_user")
 @ApiModel(value = "sys_user", description = "用户实体类")
 public class SysUser extends BaseEntity  {
-    @ApiModelProperty("表id")
-    @TableId(type = IdType.ASSIGN_ID)
-    private String id;
+
     /**
      * 用户呢称
      */
@@ -93,7 +89,4 @@ public class SysUser extends BaseEntity  {
      */
     @ApiModelProperty("IP")
     private String ip;
-
-    @TableField(exist = false)
-    private String ceShi;
 }

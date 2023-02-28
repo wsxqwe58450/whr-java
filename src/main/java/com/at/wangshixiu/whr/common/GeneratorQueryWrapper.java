@@ -1,7 +1,7 @@
 package com.at.wangshixiu.whr.common;
 
 import com.at.wangshixiu.whr.common.util.MyStringUtils;
-import com.at.wangshixiu.whr.entity.SysUser;
+import com.at.wangshixiu.whr.entity.sys.SysUser;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 
 

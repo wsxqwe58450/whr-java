@@ -1,7 +1,7 @@
 package com.at.wangshixiu.whr.common.aspect;
 
 import com.alibaba.fastjson.JSONObject;
-import com.at.wangshixiu.whr.entity.SysLog;
+import com.at.wangshixiu.whr.entity.sys.SysLog;
 import com.at.wangshixiu.whr.service.ISysLogService;
 
 import org.aspectj.lang.ProceedingJoinPoint;

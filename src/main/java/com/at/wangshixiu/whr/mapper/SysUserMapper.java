@@ -1,6 +1,6 @@
 package com.at.wangshixiu.whr.mapper;
 
-import com.at.wangshixiu.whr.entity.SysUser;
+import com.at.wangshixiu.whr.entity.sys.SysUser;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 
 /**

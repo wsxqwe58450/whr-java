@@ -1,6 +1,6 @@
 package com.at.wangshixiu.whr.service;
 
-import com.at.wangshixiu.whr.entity.SysDept;
+import com.at.wangshixiu.whr.entity.sys.SysDept;
 import com.baomidou.mybatisplus.extension.service.IService;
 
 /**

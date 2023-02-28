@@ -3,7 +3,7 @@ package com.at.wangshixiu.whr.controller.vocational;
 import com.at.wangshixiu.whr.common.Result;
 import com.at.wangshixiu.whr.common.util.MyStringUtils;
 import com.at.wangshixiu.whr.controller.BaseController;
-import com.at.wangshixiu.whr.entity.SysUser;
+import com.at.wangshixiu.whr.entity.sys.SysUser;
 import com.at.wangshixiu.whr.service.ISysUserService;
 
 import org.springframework.data.domain.PageRequest;

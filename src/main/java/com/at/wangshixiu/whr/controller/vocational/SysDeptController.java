@@ -2,7 +2,7 @@ package com.at.wangshixiu.whr.controller.vocational;
 
 import com.at.wangshixiu.whr.common.Result;
 import com.at.wangshixiu.whr.controller.BaseController;
-import com.at.wangshixiu.whr.entity.SysDept;
+import com.at.wangshixiu.whr.entity.sys.SysDept;
 import com.at.wangshixiu.whr.service.ISysDeptService;
 
 import org.springframework.data.domain.PageRequest;

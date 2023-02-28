@@ -1,14 +1,13 @@
-package com.at.wangshixiu.whr.entity;
+package com.at.wangshixiu.whr.entity.sys;
 
+import com.at.wangshixiu.whr.entity.BaseEntity;
 import com.baomidou.mybatisplus.annotation.FieldFill;
 import com.baomidou.mybatisplus.annotation.TableField;
-import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import com.fasterxml.jackson.annotation.JsonFormat;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
-import java.io.Serializable;
 import java.util.Date;
 
 import io.swagger.annotations.ApiModel;
@@ -23,7 +22,7 @@ import lombok.Data;
 @Data
 @TableName("sys_dept")
 @ApiModel(value = "部门表", description = "")
-public class SysDept implements Serializable {
+public class SysDept extends BaseEntity {
     /**
      * 部门名称
      */
@@ -49,12 +48,7 @@ public class SysDept implements Serializable {
      */
     @ApiModelProperty("是否可用 0 不可用 1可用")
     private String state;
-    /**
-     * id
-     */
-    @ApiModelProperty("id")
-    @TableId
-    private String id;
+
     /**
      * 创建人
      */

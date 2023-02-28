@@ -1,5 +1,6 @@
-package com.at.wangshixiu.whr.entity;
+package com.at.wangshixiu.whr.entity.sys;
 
+import com.at.wangshixiu.whr.entity.BaseEntity;
 import com.baomidou.mybatisplus.annotation.FieldFill;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableName;
@@ -29,12 +30,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class SysLog implements Serializable {
-    /**
-     * 日志ID
-     */
-    @ApiModelProperty("日志ID")
-    private String id;
+public class SysLog  extends BaseEntity {
     /**
      * 类名称
      */
