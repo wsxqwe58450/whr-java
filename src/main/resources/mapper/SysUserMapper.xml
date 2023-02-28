@@ -19,6 +19,5 @@
         <result property="headPortrait" column="HEAD_PORTRAIT" jdbcType="VARCHAR"/>
         <result property="state" column="STATE" jdbcType="VARCHAR"/>
         <result property="deptCode" column="DEPT_CODE" jdbcType="VARCHAR"/>
-        <result property="ip" column="IP" jdbcType="VARCHAR"/>
     </resultMap>
 </mapper>

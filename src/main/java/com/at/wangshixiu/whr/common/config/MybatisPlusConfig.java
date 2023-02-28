@@ -1,7 +1,6 @@
 package com.at.wangshixiu.whr.common.config;
 
 
-import com.at.wangshixiu.whr.common.innerInterceptor.MybatisPlusInnerInterceptor;
 import com.baomidou.mybatisplus.core.handlers.MetaObjectHandler;
 import com.baomidou.mybatisplus.extension.plugins.MybatisPlusInterceptor;
 import com.baomidou.mybatisplus.extension.plugins.inner.BlockAttackInnerInterceptor;
@@ -29,7 +28,7 @@ public class MybatisPlusConfig implements MetaObjectHandler {
     public MybatisPlusInterceptor mybatisPlusInterceptor() {
         MybatisPlusInterceptor interceptor = new MybatisPlusInterceptor();
 //        权限处理
-        interceptor.addInnerInterceptor(new MybatisPlusInnerInterceptor());
+//        interceptor.addInnerInterceptor(new MybatisPlusInnerInterceptor());
 //        分页插件
         interceptor.addInnerInterceptor(new PaginationInnerInterceptor());
 //        防止全表删除和更新插件

@@ -18,19 +18,14 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-/**
- * @Author 王世秀
- * @Date 2022/12/20
- * @Description 日志表实体类
- */
 
 @Data
 @TableName("sys_log")
-@ApiModel(value = "sys_log", description = "日志实体类")
+@ApiModel(value = "日志表", description = "日志实体类")
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class SysLog  extends BaseEntity {
+public class SysLog  {
     /**
      * 类名称
      */

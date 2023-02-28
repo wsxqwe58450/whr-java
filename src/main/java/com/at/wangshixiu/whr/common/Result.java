@@ -19,7 +19,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-@ApiModel(value = "Result",description = "统一的数据返回类")
+@ApiModel(value = "Result", description = "统一的数据返回类")
 public class Result<T> implements Serializable {
     @ApiModelProperty("http状态码")
     private Integer code;
@@ -38,6 +38,16 @@ public class Result<T> implements Serializable {
         result.setMessage("操作成功");
         return result;
     }
+
+    public static Result<Object> ok(Object data, String message) {
+        Result result = new Result();
+        result.setSuccess(true);
+        result.setCode(200);
+        result.setData(data);
+        result.setMessage(message);
+        return result;
+    }
+
     public static Result<Object> ok() {
         Result result = new Result();
         result.setSuccess(true);

@@ -20,4 +20,17 @@ public interface ISysUserService extends IService<SysUser> {
      * @return
      */
     Result<?> handleLogin(LoginUserDto loginUserDto, HttpServletRequest request);
+
+    /**
+     * 获取登录用户的权限信息
+     * @return
+     */
+    Result<?> getUserDataPermissions();
+
+    /**
+     * 处理用户是否存在
+     * @param sysUser
+     * @return
+     */
+    Result handleSaveUser(SysUser sysUser);
 }

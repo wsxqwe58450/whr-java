@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.at.wangshixiu.whr.mapper.SysMenuMapper">
+    <resultMap type="com.at.wangshixiu.whr.entity.sys.SysMenu" id="SysMenuMap">
+        <result property="id" column="ID" jdbcType="VARCHAR"/>
+        <result property="menuName" column="MENU_NAME" jdbcType="VARCHAR"/>
+        <result property="parentId" column="PARENT_ID" jdbcType="VARCHAR"/>
+        <result property="componentUrl" column="COMPONENT_URL" jdbcType="VARCHAR"/>
+        <result property="type" column="TYPE" jdbcType="VARCHAR"/>
+        <result property="permissions" column="PERMISSIONS" jdbcType="VARCHAR"/>
+        <result property="orderNumber" column="ORDER_NUMBER" jdbcType="VARCHAR"/>
+        <result property="createdBy" column="CREATED_BY" jdbcType="VARCHAR"/>
+        <result property="createdTime" column="CREATED_TIME" jdbcType="DATE"/>
+        <result property="updatedBy" column="UPDATED_BY" jdbcType="VARCHAR"/>
+        <result property="updatedTime" column="UPDATED_TIME" jdbcType="DATE"/>
+    </resultMap>
+
+    <resultMap id="MenuDtoMap" type="com.at.wangshixiu.whr.dto.MenuDto">
+        <result property="id" column="ID" jdbcType="VARCHAR"/>
+        <result property="menuName" column="MENU_NAME" jdbcType="VARCHAR"/>
+        <result property="parentId" column="PARENT_ID" jdbcType="VARCHAR"/>
+        <result property="componentUrl" column="COMPONENT_URL" jdbcType="VARCHAR"/>
+        <result property="type" column="TYPE" jdbcType="VARCHAR"/>
+        <result property="permissions" column="PERMISSIONS" jdbcType="VARCHAR"/>
+        <result property="buttonName" column="BUTTON_NAME" jdbcType="VARCHAR"/>
+        <association property="children" column="id"
+                     select="com.at.wangshixiu.whr.mapper.SysMenuMapper.getMenuDtoListByParentId"/>
+    </resultMap>
+
+    <sql id="SysMenuSql">
+        ID,
+        MENU_NAME,
+        parent_id,
+        component_url,
+        type,
+        permissions,
+        order_number,
+        CREATED_BY,
+        CREATED_TIME,
+        UPDATED_BY,
+        UPDATED_TIME,
+    </sql>
+
+    <sql id="MenuDtoSql">
+        sys_menu . id,
+        sys_menu.menu_name,
+        sys_menu.parent_id ,
+        sys_menu.component_url,
+        sys_menu.type ,
+        sys_menu.permissions,
+        sys_menu.button_name
+    </sql>
+
+    <select id="getUserMenu" resultMap="MenuDtoMap">
+        SELECT
+        <include refid="MenuDtoSql"></include>
+        FROM
+        sys_menu
+        LEFT JOIN sys_role_menu ON sys_role_menu.MENU_ID = sys_menu.ID
+        LEFT JOIN sys_user_role ON sys_role_menu.ROLE_ID = sys_user_role.ROLE_ID
+        LEFT JOIN sys_role ON sys_user_role.ROLE_ID = sys_role.ID
+        where
+        sys_role.state = '1' AND sys_menu.type = '0'
+        <if test="loginId != null and loginId != ''">
+            and sys_user_role.USER_ID = #{loginId,jdbcType=VARCHAR}
+        </if>
+
+    </select>
+
+    <select id="getMenuDtoListByParentId" resultMap="MenuDtoMap">
+        select
+        <include refid="MenuDtoSql"></include>
+        FROM
+        sys_menu where parent_id = #{parentId,jdbcType=VARCHAR}
+        ORDER BY order_number
+    </select>
+</mapper>

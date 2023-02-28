@@ -17,7 +17,7 @@ import java.net.UnknownHostException;
 import lombok.extern.slf4j.Slf4j;
 
 @SpringBootApplication
-@MapperScan("com.at.wangshixiu.whr.mapper")
+@MapperScan({"com.at.wangshixiu.whr.mapper","com.at.wangshixiu.whr.mapper.related.mapper"})
 @Slf4j
 public class WhrJavaApplication implements ApplicationRunner {
 

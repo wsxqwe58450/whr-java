@@ -15,6 +15,7 @@ import java.awt.Font;
 import java.util.Objects;
 
 import lombok.Data;
+import lombok.extern.slf4j.Slf4j;
 
 /**
  * @Author 王世秀
@@ -24,6 +25,7 @@ import lombok.Data;
 
 @Repository
 @Data
+@Slf4j
 public class LoginProperties {
 
     private LoginCode loginCode;
@@ -75,8 +77,7 @@ public class LoginProperties {
                     captcha = new SpecCaptcha(loginCode.getWidth(), loginCode.getHeight());
                     captcha.setLen(loginCode.getLength());
                 default:
-                    System.out.println("验证码配置信息错误！正确配置查看 LoginCodeEnum ");
-
+                    log.error("验证码配置信息错误！正确配置查看 LoginCodeEnum ");
             }
         }
         if (MyStringUtils.isNotNull(loginCode.getFontName())) {

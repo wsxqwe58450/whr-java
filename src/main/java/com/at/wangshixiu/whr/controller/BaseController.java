@@ -8,6 +8,7 @@ import com.baomidou.mybatisplus.extension.service.IService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
+import org.springframework.web.bind.annotation.CrossOrigin;
 
 import java.io.Serializable;
 
@@ -20,6 +21,7 @@ import javax.servlet.http.HttpServletRequest;
  * @Description 控制层基类
  */
 @SuppressWarnings("unchecked")
+@CrossOrigin
 public class BaseController<S extends IService> {
 
     @Autowired

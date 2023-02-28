@@ -1,27 +1,16 @@
 package com.at.wangshixiu.whr.entity.sys;
 
 import com.at.wangshixiu.whr.entity.BaseEntity;
-import com.baomidou.mybatisplus.annotation.FieldFill;
-import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableName;
-import com.fasterxml.jackson.annotation.JsonFormat;
-
-import org.springframework.format.annotation.DateTimeFormat;
-
-import java.util.Date;
 
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 
-/**
- * @Author 王世秀
- * @Date 2022/12/20
- * @Description 部门表实体类
- */
+
 @Data
 @TableName("sys_dept")
-@ApiModel(value = "部门表", description = "")
+@ApiModel(value = "部门表", description = "部门实体类")
 public class SysDept extends BaseEntity {
     /**
      * 部门名称
@@ -48,34 +37,5 @@ public class SysDept extends BaseEntity {
      */
     @ApiModelProperty("是否可用 0 不可用 1可用")
     private String state;
-
-    /**
-     * 创建人
-     */
-    @ApiModelProperty("创建人")
-    @TableField(fill = FieldFill.INSERT)
-    private String createdBy;
-    /**
-     * 创建时间
-     */
-    @ApiModelProperty("创建时间")
-    @JsonFormat(timezone = "GMT+8", pattern = "yyyy-MM-dd HH:mm:ss")
-    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
-    @TableField(fill = FieldFill.INSERT)
-    private Date createdTime;
-    /**
-     * 更新人
-     */
-    @ApiModelProperty("更新人")
-    @TableField(fill = FieldFill.UPDATE)
-    private String updatedBy;
-    /**
-     * 更新时间
-     */
-    @ApiModelProperty("更新时间")
-    @JsonFormat(timezone = "GMT+8", pattern = "yyyy-MM-dd HH:mm:ss")
-    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
-    @TableField(fill = FieldFill.UPDATE)
-    private Date updatedTime;
 
 }

@@ -2,6 +2,7 @@ package com.at.wangshixiu.whr.entity.sys;
 
 import com.at.wangshixiu.whr.common.interfaces.Desensitized;
 import com.at.wangshixiu.whr.common.sensitive.SensitiveTypeEnum;
+import com.at.wangshixiu.whr.common.validation.GroupsClass;
 import com.at.wangshixiu.whr.entity.BaseEntity;
 import com.baomidou.mybatisplus.annotation.TableName;
 
@@ -13,21 +14,17 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 
-/**
- * @Author 王世秀
- * @Date 2022/12/20
- * @Description 用户实体类
- */
+
 @Data
 @TableName("sys_user")
-@ApiModel(value = "sys_user", description = "用户实体类")
-public class SysUser extends BaseEntity  {
+@ApiModel(value = "用户表", description = "用户实体类")
+public class SysUser extends BaseEntity {
 
     /**
      * 用户呢称
      */
     @ApiModelProperty("用户呢称")
-    @NotEmpty(message = "用户名不能为空")
+    @NotEmpty(message = "用户名不能为空", groups = GroupsClass.InsertClass.class)
     private String username;
     /**
      * 用户的真实姓名
@@ -39,7 +36,7 @@ public class SysUser extends BaseEntity  {
      * 用户密码
      */
     @ApiModelProperty("用户密码")
-    @NotEmpty(message = "密码不能为空")
+    @NotEmpty(message = "密码不能为空", groups = GroupsClass.InsertClass.class)
     @Desensitized(type = SensitiveTypeEnum.PASSWORD)
     private String password;
     /**
@@ -51,14 +48,14 @@ public class SysUser extends BaseEntity  {
      * 手机号
      */
     @ApiModelProperty("手机号")
-    @Pattern(regexp = "[0-9-()（）]{7,18}", message = "请输入正确的手机号")
+    @Pattern(regexp = "[0-9-()（）]{7,18}", message = "请输入正确的手机号", groups = GroupsClass.InsertClass.class)
     @Desensitized(type = SensitiveTypeEnum.MOBILE_PHONE)
     private String phone;
     /**
      * 邮件
      */
     @ApiModelProperty("邮件")
-    @Email(message = "请输入正确的邮箱")
+    @Email(message = "请输入正确的邮箱", groups = GroupsClass.InsertClass.class)
     @Desensitized(type = SensitiveTypeEnum.EMAIL)
     private String email;
     /**
@@ -75,7 +72,7 @@ public class SysUser extends BaseEntity  {
     /**
      * 状态 1正常  0 禁用
      */
-    @ApiModelProperty("状态 1正常  0 禁用  2锁定")
+    @ApiModelProperty("状态 1正常  0 禁用")
     private String state;
 
     /**
@@ -84,9 +81,4 @@ public class SysUser extends BaseEntity  {
     @ApiModelProperty("部门code")
     private String deptCode;
 
-    /**
-     * IP
-     */
-    @ApiModelProperty("IP")
-    private String ip;
 }

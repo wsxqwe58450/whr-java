@@ -1,5 +1,6 @@
 package com.at.wangshixiu.whr.entity;
 
+import com.at.wangshixiu.whr.common.validation.GroupsClass;
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.fasterxml.jackson.annotation.JsonFormat;
@@ -8,6 +9,8 @@ import org.springframework.format.annotation.DateTimeFormat;
 
 import java.io.Serializable;
 import java.util.Date;
+
+import javax.validation.constraints.NotEmpty;
 
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
@@ -22,6 +25,7 @@ public class BaseEntity implements Serializable {
 
     @ApiModelProperty("表id")
     @TableId(type = IdType.ASSIGN_ID)
+    @NotEmpty(message = "id不能为空", groups = GroupsClass.UpdateClass.class)
     private String id;
 
     /**
