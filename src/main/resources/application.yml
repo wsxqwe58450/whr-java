@@ -1,0 +1,36 @@
+server:
+  port: 8090
+spring:
+  application:
+    name: whr-java
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/whr?serverTimezone=GMT%2B8
+    username: root
+    password: root
+    druid:
+      filters: stat
+      aop-patterns:
+        - com.at.wangshixiu.whr
+      stat-view-servlet:
+        enabled: true
+      web-stat-filter:
+        enabled: true
+        url-pattern: /*
+        exclusions: "*.js,*.css,*.gif,*.jpg,*.png,*.ico,/druid/*,/doc.html"
+  redis:
+    port: 6379
+    database: 3
+    host: localhost
+    jedis:
+      pool:
+        max-active: 5
+
+mybatis-plus:
+#  id类型
+  global-config:
+    db-config:
+      id-type: ASSIGN_ID
+#      打印日志
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
